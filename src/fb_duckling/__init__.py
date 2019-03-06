@@ -7,3 +7,6 @@ try:
     __version__ = get_distribution(dist_name).version
 except DistributionNotFound:
     __version__ = 'unknown'
+
+from .utils import get_default_locale, get_default_url, get_default_port
+from .duckling import Duckling
