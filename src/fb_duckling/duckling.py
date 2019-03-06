@@ -5,26 +5,27 @@ https://github.com/RasaHQ/rasa_nlu/blob/master/rasa_nlu/extractors/duckling_http
 The idea was to create a standalone version from this tool that could be used without rasa_nlu
 """
 
-from .utils import get_default_locale, get_default_url, get_default_port
+from .base_class import BaseClass
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np
 import requests
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-class Duckling(object):
+class Duckling(BaseClass):
 
-    default_locale = get_default_locale() #"en_US"
-    default_url = get_default_url() #"http://0.0.0.0"
-    default_port = get_default_port() #8000
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def __init__(self, locale=default_locale, url=default_url, port=default_port):
+        self.dim_list = [
+            'amount-of-money', 'credit-card-number', 'distance', 'duration', 'email', 'number', 'ordinal',
+            'phone-number', 'quantity', 'temperature', 'time',  'time-grain', 'url', 'volume', 'regex'
+        ]
 
-        self.locale = locale
-        self.url = url
-        self.port = port
-
-        self.dim_list = ['amount-of-money', 'distance', 'time', 'ordinal']
+        self.dim_onh = OneHotEncoder()
+        self.dim_onh.fit(np.array(self.dim_list).reshape(-1, 1))
 
     def create_payload(self, text, locale):
         return {
@@ -32,16 +33,16 @@ class Duckling(object):
             "locale": locale
         }
 
-    def request(self, text, locale=default_locale, url=default_url, port=default_port):
+    def request(self, text, locale=None):
 
         headers = {"Content-Type": "application/x-www-form-urlencoded; "
                                    "charset=UTF-8"}
 
         # Payload
-        payload = self.create_payload(text=text, locale=locale)
+        payload = self.create_payload(text=text, locale=locale or self.locale)
 
         # Perform Request
-        response = requests.post("{0}:{1}/parse".format(url, port), data=payload, headers=headers)
+        response = requests.post("{0}:{1}/parse".format(self.url, self.port), data=payload, headers=headers)
 
         try:
             if response.status_code == 200:
@@ -56,12 +57,13 @@ class Duckling(object):
                          "https://github.com/facebook/duckling\n"
                          "Error: {0}".format(e))
 
+    def extract_dims(self, text, locale=None):
+        return {
+            x["dim"] for x in self.request(text=text, locale=locale or self.locale)
+        }
 
-
-
-    def contains_dim(self):
-        #TODO
-        pass
-
-
+    def contains_dim(self, text, locale=None):
+        return self.dim_onh.transform(
+            [list(self.extract_dims(text=text, locale=locale or self.locale))]
+        )
 
