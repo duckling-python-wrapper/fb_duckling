@@ -5,8 +5,13 @@ import re
 
 class Anonymizer(BaseClass):
 
+    default_anonymization_dict = {
+        "email": "personnal_email",
+        "phone-number": "personnal_phone_number"
+    }
+
     def __init__(self, anonymization_dims=("email", "phone-number"),
-                 anonymization_dict={"email": "personnal_email", "phone-number": "personnal_phone_number"},
+                 anonymization_dict=default_anonymization_dict,
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -18,7 +23,7 @@ class Anonymizer(BaseClass):
 
         result = self.duckling.request(text, locale=locale or self.locale)
 
-        anonymized_text = text
+        anonymized_text = text.copy()
         for res in result:
             if res["dim"] in self.anonymization_dims:
                 anonymized_text = re.sub(res["body"], self.anonymization_dict[res["dim"]], anonymized_text)
