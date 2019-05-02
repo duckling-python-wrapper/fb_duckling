@@ -53,7 +53,7 @@ class Duckling(BaseClass):
                 ))
                 return []
         except requests.exceptions.ConnectionError as e:
-            logger.error("Could not correct to duckling, please make sure that the Duckling http server is on:\n"
+            logger.error("Could not connect to duckling, please make sure that the Duckling http server is on:\n"
                          "https://github.com/facebook/duckling\n"
                          "Error: {0}".format(e))
 

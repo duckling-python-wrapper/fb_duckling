@@ -6,8 +6,8 @@ import re
 class Anonymizer(BaseClass):
 
     default_anonymization_dict = {
-        "email": "personnal_email",
-        "phone-number": "personnal_phone_number"
+        "email": "personal_email",
+        "phone-number": "personal_phone_number"
     }
 
     def __init__(self, anonymization_dims=("email", "phone-number"),
