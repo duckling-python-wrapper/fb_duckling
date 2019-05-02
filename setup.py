@@ -9,6 +9,7 @@
 """
 
 import sys
+import git
 from setuptools import setup
 
 # Add here console scripts and other entry points in ini-style format
@@ -21,12 +22,19 @@ entry_points = """
 
 
 def setup_package():
+
     needs_sphinx = {'build_sphinx', 'upload_docs'}.intersection(sys.argv)
     sphinx = ['sphinx'] if needs_sphinx else []
     setup(setup_requires=['pyscaffold>=3.0a0,<3.1a0'] + sphinx,
           entry_points=entry_points,
-          use_pyscaffold=True)
+          use_pyscaffold=True,
+          dependency_links=["https://github.com/facebook/duckling"])
 
 
 if __name__ == "__main__":
     setup_package()
+    # if
+    g = git.cmd.Git(url="https://github.com/facebook/duckling", to_path="./duckling", branch='master')
+    g.pull()
+
+
