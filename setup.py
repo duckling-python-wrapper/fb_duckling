@@ -9,7 +9,6 @@
 """
 
 import sys
-import git
 from setuptools import setup
 
 # Add here console scripts and other entry points in ini-style format
@@ -33,5 +32,3 @@ def setup_package():
 
 if __name__ == "__main__":
     setup_package()
-
-
