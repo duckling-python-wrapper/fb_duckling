@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 from os import path, getenv
 
 
-
 env_path = "./.env"
 env_default_path = "./.env.default"
 

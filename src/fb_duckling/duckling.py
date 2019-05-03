@@ -2,7 +2,8 @@
 """
 I took inspiration from the DucklingHttpExtractor from rasa_nlu
 https://github.com/RasaHQ/rasa_nlu/blob/master/rasa_nlu/extractors/duckling_http_extractor.py
-The idea was to create a standalone version from this tool that could be used without rasa_nlu
+The idea was to create a standalone version from
+this tool that could be used without rasa_nlu
 """
 
 from .base_class import BaseClass
@@ -44,18 +45,24 @@ class Duckling(BaseClass):
 
         # Perform Request
         response = requests.post(
-            "{0}:{1}/parse".format(self.url, self.port), data=payload, headers=headers)
+            "{0}:{1}/parse".format(self.url, self.port),
+            data=payload,
+            headers=headers
+        )
 
         try:
             if response.status_code == 200:
                 return response.json()
             else:
-                logger.error("Failed to get a proper response from Duckling\nstatus_code: {0},\nResponse: {1}".format(
-                    response.status_code, response.text
-                ))
+                logger.error(
+                    "Failed to get a proper response from Duckling\n"
+                    "status_code: {0},\nResponse: {1}".format(
+                        response.status_code, response.text
+                    ))
                 return []
         except requests.exceptions.ConnectionError as e:
-            logger.error("Could not connect to duckling, please make sure that the Duckling http server is on:\n"
+            logger.error("Could not connect to duckling, please make sure that"
+                         "the Duckling http server is on:\n"
                          "https://github.com/facebook/duckling\n"
                          "Error: {0}".format(e))
 

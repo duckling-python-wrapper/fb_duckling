@@ -12,6 +12,3 @@ class BaseClass(object):
         self.locale = locale
         self.url = url
         self.port = port
-
-
-
