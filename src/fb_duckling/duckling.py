@@ -20,8 +20,9 @@ class Duckling(BaseClass):
         super().__init__(*args, **kwargs)
 
         self.dim_list = [
-            'amount-of-money', 'credit-card-number', 'distance', 'duration', 'email', 'number', 'ordinal',
-            'phone-number', 'quantity', 'temperature', 'time',  'time-grain', 'url', 'volume', 'regex'
+            'amount-of-money', 'credit-card-number', 'distance', 'duration',
+            'email', 'number', 'ordinal', 'phone-number', 'quantity',
+            'temperature', 'time',  'time-grain', 'url', 'volume', 'regex'
         ]
 
         self.dim_onh = OneHotEncoder()
@@ -42,7 +43,8 @@ class Duckling(BaseClass):
         payload = self.create_payload(text=text, locale=locale or self.locale)
 
         # Perform Request
-        response = requests.post("{0}:{1}/parse".format(self.url, self.port), data=payload, headers=headers)
+        response = requests.post(
+            "{0}:{1}/parse".format(self.url, self.port), data=payload, headers=headers)
 
         try:
             if response.status_code == 200:
@@ -66,4 +68,3 @@ class Duckling(BaseClass):
         return self.dim_onh.transform(
             [list(self.extract_dims(text=text, locale=locale or self.locale))]
         )
-
