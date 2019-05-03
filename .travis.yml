@@ -1,5 +1,7 @@
 language: python
-install: python setup.py install
+python: 
+  - "3.7"
+install: pip install -r requirements && pip install -e .
 jobs:
   include:
     - stage: test
