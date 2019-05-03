@@ -33,8 +33,5 @@ def setup_package():
 
 if __name__ == "__main__":
     setup_package()
-    # if
-    g = git.cmd.Git(url="https://github.com/facebook/duckling", to_path="./duckling", branch='master')
-    g.pull()
 
 
