@@ -1,0 +1,14 @@
+language: python
+install: python setup.py install
+jobs:
+  include:
+    - stage: test
+      name: "Unit Tests"
+      script: python setup.py test
+    - stage: deploy
+      name: "Deploy"
+
+stages:
+  - test
+  - name: deploy
+    if: branch = master
