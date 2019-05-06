@@ -1,28 +1,27 @@
+dist: xenial # required for Python >= 3.7
 language: python
-jobs:
+matrix:
   include:
-    - name: "Duckling on Docker"
+    # - name: "Test 2.7"
+    #   python: "2.7"
+    #   services: docker
+    #   before_install:
+    #     - docker pull rasa/duckling
+    #     - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+    #     - pip install pyscaffold==2.5
+    - name: "Test 3.6"
+      python: "3.6"
       services: docker
       before_install:
         - docker pull rasa/duckling
-        - docker run -d -p 127.0.0.1:80:8000 rasa/duckling
-    - name: "Python 3.7.1 on Xenial Linux"
-      python: 3.7           # this works for Linux but is ignored on macOS or Windows
-      dist: xenial          # required for Python >= 3.7
-    - name: "Python 3.7.2 on macOS"
-      os: osx
-      osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
-      language: shell       # 'language: python' is an error on Travis CI macOS
-    - name: "Python 3.7.3 on Windows"
-      os: windows           # Windows 10.0.17134 N/A Build 17134
-      language: shell       # 'language: python' is an error on Travis CI Windows
-      before_install: choco install python
-      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-install: 
-  # all three OSes agree about 'pip3'
-  - pip3 install --upgrade pip
+        - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+    - name: "Test 3.7"
+      python: "3.7"
+      services: docker
+      before_install:
+        - docker pull rasa/duckling
+        - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+install:
   - pip install -r requirements.txt
-  - pip install -e .  
-# 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
-# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
+  - python setup.py install
 script: python3 setup.py test || python setup.py test
