@@ -1,12 +1,14 @@
 language: python
 jobs:
   include:
-    - name: "Duckling on Docker"
+    - stage: server
+      name: "Duckling on Docker"
       services: docker
       before_install:
         - docker pull rasa/duckling
-        - docker run -d -p 127.0.0.1:80:8000 rasa/duckling
-    - name: "Python 3.7.1 on Xenial Linux"
+        - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+    - stage: test
+      name: "Python 3.7.1 on Xenial Linux"
       python: 3.7           # this works for Linux but is ignored on macOS or Windows
       dist: xenial          # required for Python >= 3.7
     - name: "Python 3.7.2 on macOS"
@@ -26,3 +28,6 @@ install:
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script: python3 setup.py test || python setup.py test
+stages:
+  - server
+  - test
