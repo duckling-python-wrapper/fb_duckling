@@ -8,6 +8,7 @@ matrix:
       before_install:
         - docker pull rasa/duckling
         - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+        - pip install pyscaffold==2.5
     - name: "Test 3.6"
       python: "3.6"
       services: docker
