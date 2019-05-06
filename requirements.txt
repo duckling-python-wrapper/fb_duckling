@@ -32,3 +32,4 @@ smmap2==2.0.5
 traitlets==4.3.2
 urllib3==1.24.2
 wcwidth==0.1.7
+setuptools==41.0.1
