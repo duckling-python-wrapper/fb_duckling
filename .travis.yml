@@ -3,29 +3,15 @@ jobs:
   include:
     - stage: test
       name: "Duckling on Docker Linux"
-      python: 3.7           # this works for Linux but is ignored on macOS or Windows
+      python: 
+        - "3.7"
+        - "3.6"
+        - "2.7"          # this works for Linux but is ignored on macOS or Windows
       dist: xenial          # required for Python >= 3.7
       services: docker
       before_install:
         - docker pull rasa/duckling
         - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
-    - name: "Duckling on Docker OSX"
-      os: osx
-      osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
-      language: shell       # 'language: python' is an error on Travis CI macOS
-      services: docker
-      before_install:
-        - docker pull rasa/duckling
-        - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
-    - name: "Duckling on Docker Windows"
-      os: windows           # Windows 10.0.17134 N/A Build 17134
-      language: shell       # 'language: python' is an error on Travis CI Windows
-      services: docker
-      before_install: 
-        - choco install python
-        - docker pull rasa/duckling
-        - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
-      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 install: 
   # all three OSes agree about 'pip3'
   - pip3 install --upgrade pip
