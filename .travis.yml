@@ -2,13 +2,13 @@ dist: xenial # required for Python >= 3.7
 language: python
 matrix:
   include:
-    - name: "Test 2.7"
-      python: "2.7"
-      services: docker
-      before_install:
-        - docker pull rasa/duckling
-        - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
-        - pip install pyscaffold==2.5
+    # - name: "Test 2.7"
+    #   python: "2.7"
+    #   services: docker
+    #   before_install:
+    #     - docker pull rasa/duckling
+    #     - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+    #     - pip install pyscaffold==2.5
     - name: "Test 3.6"
       python: "3.6"
       services: docker
