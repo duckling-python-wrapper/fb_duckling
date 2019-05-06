@@ -1,12 +1,13 @@
 language: python
+python: 
+  - "3.7"
+  - "3.6"
+  - "2.7"
 jobs:
   include:
     - stage: test
       name: "Duckling on Docker Linux"
-      python: 
-        - "3.7"
-        - "3.6"
-        - "2.7"          # this works for Linux but is ignored on macOS or Windows
+       # this works for Linux but is ignored on macOS or Windows
       dist: xenial          # required for Python >= 3.7
       services: docker
       before_install:
