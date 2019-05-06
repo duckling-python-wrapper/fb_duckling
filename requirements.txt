@@ -8,8 +8,6 @@ decorator==4.4.0
 gitdb2==2.0.5
 GitPython==2.1.11
 idna==2.8
-ipython==7.4.0
-ipython-genutils==0.2.0
 jedi==0.13.3
 more-itertools==7.0.0
 numpy==1.16.2
