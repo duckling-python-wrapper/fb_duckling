@@ -23,5 +23,5 @@ matrix:
         - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
 install:
   - pip install -r requirements.txt
-  - pip install -e .
+  - python setup.py install
 script: python3 setup.py test || python setup.py test
