@@ -24,6 +24,7 @@ matrix:
         - python setup.py install
       script: python3 setup.py test || python setup.py test
     - stage: deploy
+      install: true
       script: skip
       deploy:
         provider: pypi
