@@ -33,3 +33,6 @@ matrix:
 stages:
   - test
   - deploy
+
+after_success:
+  - coveralls
