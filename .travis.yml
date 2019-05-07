@@ -9,23 +9,26 @@ matrix:
       before_install:
         - docker pull rasa/duckling
         - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+      install:
+        - pip install -r requirements.txt
+        - python setup.py install
+      script: python3 setup.py test || python setup.py test
     - name: "Test 3.7"
       python: "3.7"
       services: docker
       before_install:
         - docker pull rasa/duckling
         - docker run -d -p 0.0.0.0:8000:8000 rasa/duckling
+      install:
+        - pip install -r requirements.txt
+        - python setup.py install
+      script: python3 setup.py test || python setup.py test
     - stage: deploy
       deploy:
         provider: pypi
         user: "bbreton3"
         password:
           secure: "FCO4U9y+X9xBN4sryi+NeTIR5qjzpceX70+WGKODNVWYg3naJ/cEj1YYFkdGoo72Q7GZ6+vCNyG1ziwu+zw+hFIoKpRguOuyesFhuZ0Ar/ygb1pPpBHUlXrSDlyArrbj7ZNSQweYU3Q7o8Rs/+GnMn6Qdgojc/OzG4ifss6yC8AtmgAH5pGBHl2MzqiGuMohvfH2EH8aAVH0yLksZBNW/05lYH+jtDq9au6giqAKvpy+ZiEDDEFGgewdJ3McXQlvAgwMXB3cuKlYBADu83MB2Zxkf/uwTjxBRWOjrJnfLC0eNMNm3FvDQu0Jhd5d2R/Pi/HHKtH0pJICY6Zh+2RxPwGxzHgJvtu0ZZ1KiTn6BwS/jZGlfy+noSiSc3jSMSw8VU/N5E4dcdBTZSUUO7XLLf4E0QdPrco/GfFTpeF3cM3S1TizQVUAIIXII94S0vHGovqjR8leFVdpNEtyXNtw+T1RB7+g3avDGU2HG9WGOIQOTVX6Y7MeLh6PtD3ycsej/Rzx6RGt87HcowaHYHfFXbL78pYI4JJC3Bin4rojvk3kYUBH4hZnEHug+2HMqlePkdM6171q6sAQF34mstftgZTns/ycO/3Gf/wZH9wnOcXwP06t0DRGKBZ2CyrSt+9OgN2BwbL/CHb1vUPCCLwHzb6aec0PnbLJr/jUN55ou8Y="
-
-install:
-  - pip install -r requirements.txt
-  - python setup.py install
-script: python3 setup.py test || python setup.py test
 
 stages:
   - test
