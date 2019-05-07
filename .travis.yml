@@ -30,3 +30,6 @@ script: python3 setup.py test || python setup.py test
 stages:
   - test
   - deploy
+
+after_success:
+  - coveralls
