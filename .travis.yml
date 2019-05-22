@@ -30,8 +30,9 @@ matrix:
         provider: pypi
         user: "Nicolas_Drbs"
         password:
-          secure: "Hyar5MNU7HFCP7EBLarmM0RdaONZP/MzjT1zjSc0g2iVRhtDMsWMOp9CnRHHyleeDH/+3ZyabJLQ5m7hRDMf/iC5ADgQx0+yNdS/p6b3v+hZC0vkD25xTIN6AkJT0vCl3C+Hi3kzLT19//D+NIeD5cIYumA7/4P2oaJvB0bajqZGswgLvHdLvG8bt3bzL/G78peJFGkDv7uumBT2BKiPrc02QvzMlp1WFpoFZIjayxDmLDDH2ipc5aQvRR30rc0G9TlGFH9YMReVoBr0UofDOVmSbdyPHcB3WcIAnQYaOCBe3N4ZXxlIW1aGr6kAsmtNWCJ0MK9sTCNikMEf4bV3BRgBxjeY4WDJ9RQlt4LeTYHFcU7AE97Wq76wsJSxzzPhasuRts3jukUpnEyKjZMapaPmk8/HfcP8LFxVnmelYKZAko1HFKnEgDBIlc+8CsOrolculiE17Dn29pBONLHMwNZMmn3tRSKWZcZnqrPRReTYm7ejdmaea2ejfHa0Zqbg7upWxyCoqRw3GlctAz2w4/EDcPgWJ5k97vHFlktTgXImB1vm4BPkhPIfqkzgDWz2nwxnDPV8R8Fms98WnCT0oT1wQuxaW1FtVRFhhaioRCeg0p0yxudSm03f48TK7LiYrx/6dS1vt0mxc3x0Nz4NNyIL5d96zEkWxODomVJ0l38="
-
+          secure: "hwwZOGOxq8+/X6sNYwCQU0VL2E9Lu/SSLMa8b4Cp0I3FLAu3onAmHD2/t9V7zQyOGFfyfN9gC2Snc3I+/2JJYI9K/UVNeT7nStc+xYU7hSUxyss183XWERwAnCC/kfGqqje8MfomtUt7B9uX0J1TQgTOtT9Yv1F+cRpqoidyfqXFPiG/yKyt6HO3HAMdBAWIql5qSA9alkf3xcqNb9oO6aBdDsiK1gNi6I9pFfQvg1tM7NnTn5K+YIodXv/TV8CBmGM+l25gJOTO+oobjnf3c8Iw9cgKykbB+AJwMdNT5Wpg79JxXdvevBJgEUVvkmav+qoxpAbG2jhEyMXE4sKuMZJfanW1wui0plZC0wEybP7GtXBE9vCAhhrGzIkM9HaBTjdK33VkOgO617V+31d0yIt+AxP2lfKVCJIykE42/i6yDmYYCmfJyyP4Bpwf+Zawx7iXRM2nUv+/9Uqyp2X5iA1msFP5aTas1OQ7LwdBp8Dil22ill3lgHYpTiOCspAr7j83A7+M/d+PAzc5OkZKGq8vVjLeSXRJ5O/IzH4MtbukOe7hOH/a1KOC65r68H2eKc3EOHTEOIGlY9S0AUgQ0x4mxH1b693A3zfCoZ4LE7bFms4hMiBwufyrQ2wq+d97Ho0giWqhIrLNj9VlKSyjX8t7GwWtOQjosbyEUKSnSNg="
+        on:
+          branch: master 
 stages:
   - test
   - deploy
