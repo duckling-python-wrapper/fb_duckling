@@ -28,6 +28,7 @@ matrix:
       script: skip
       deploy:
         provider: pypi
+        distributions: sdist bdist_wheel release
         user: "Nicolas_Drbs"
         password:
           secure: "hwwZOGOxq8+/X6sNYwCQU0VL2E9Lu/SSLMa8b4Cp0I3FLAu3onAmHD2/t9V7zQyOGFfyfN9gC2Snc3I+/2JJYI9K/UVNeT7nStc+xYU7hSUxyss183XWERwAnCC/kfGqqje8MfomtUt7B9uX0J1TQgTOtT9Yv1F+cRpqoidyfqXFPiG/yKyt6HO3HAMdBAWIql5qSA9alkf3xcqNb9oO6aBdDsiK1gNi6I9pFfQvg1tM7NnTn5K+YIodXv/TV8CBmGM+l25gJOTO+oobjnf3c8Iw9cgKykbB+AJwMdNT5Wpg79JxXdvevBJgEUVvkmav+qoxpAbG2jhEyMXE4sKuMZJfanW1wui0plZC0wEybP7GtXBE9vCAhhrGzIkM9HaBTjdK33VkOgO617V+31d0yIt+AxP2lfKVCJIykE42/i6yDmYYCmfJyyP4Bpwf+Zawx7iXRM2nUv+/9Uqyp2X5iA1msFP5aTas1OQ7LwdBp8Dil22ill3lgHYpTiOCspAr7j83A7+M/d+PAzc5OkZKGq8vVjLeSXRJ5O/IzH4MtbukOe7hOH/a1KOC65r68H2eKc3EOHTEOIGlY9S0AUgQ0x4mxH1b693A3zfCoZ4LE7bFms4hMiBwufyrQ2wq+d97Ho0giWqhIrLNj9VlKSyjX8t7GwWtOQjosbyEUKSnSNg="
