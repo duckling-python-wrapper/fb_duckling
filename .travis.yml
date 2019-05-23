@@ -29,10 +29,11 @@ matrix:
       deploy:
         provider: pypi
         distributions: sdist bdist_wheel release
-        user: "Nicolas_Drbs"
+        user: "bbreton3"
         password:
-          secure: "hwwZOGOxq8+/X6sNYwCQU0VL2E9Lu/SSLMa8b4Cp0I3FLAu3onAmHD2/t9V7zQyOGFfyfN9gC2Snc3I+/2JJYI9K/UVNeT7nStc+xYU7hSUxyss183XWERwAnCC/kfGqqje8MfomtUt7B9uX0J1TQgTOtT9Yv1F+cRpqoidyfqXFPiG/yKyt6HO3HAMdBAWIql5qSA9alkf3xcqNb9oO6aBdDsiK1gNi6I9pFfQvg1tM7NnTn5K+YIodXv/TV8CBmGM+l25gJOTO+oobjnf3c8Iw9cgKykbB+AJwMdNT5Wpg79JxXdvevBJgEUVvkmav+qoxpAbG2jhEyMXE4sKuMZJfanW1wui0plZC0wEybP7GtXBE9vCAhhrGzIkM9HaBTjdK33VkOgO617V+31d0yIt+AxP2lfKVCJIykE42/i6yDmYYCmfJyyP4Bpwf+Zawx7iXRM2nUv+/9Uqyp2X5iA1msFP5aTas1OQ7LwdBp8Dil22ill3lgHYpTiOCspAr7j83A7+M/d+PAzc5OkZKGq8vVjLeSXRJ5O/IzH4MtbukOe7hOH/a1KOC65r68H2eKc3EOHTEOIGlY9S0AUgQ0x4mxH1b693A3zfCoZ4LE7bFms4hMiBwufyrQ2wq+d97Ho0giWqhIrLNj9VlKSyjX8t7GwWtOQjosbyEUKSnSNg="
+          secure: "Irrqqdv5jMbPZs9Ypxc2FM9hXw8FnVRCBJ3NFqIOt4OVwViCLySfK7sKmy+enlOl4BIMypyBgcEWIbkcN/uCwUFYdnBw7DyVrdfyvk5BuHLXS086sCmSS8/7wcADoxEirZc8dAzTFiG7R6deBVL1TANt4ArVMtQRDZUJP+5TZQ4VvYpW/IQZaoNdvfFtiBHm7GkP0cs3oNsV6br0/u/6yIrdsYMVrdfB9/T/aKHSCYKsnuoWaHO7dAbJB9shrPboYLFrhFldz4H27ieArMfVAiBbP3g4BDLGL/oRSACtm4rlJBLAMikOag1L8roRWHIhkRYYmFqmP3ybkWnux1V3tpDq0/lR+vgp2WW4EIQI8BweQjpyCh0mq7LG0rgWtGhnCC9FYj8OIshsgY8GFK6tj750noNLhZbZpSmoQv++BngtFrz2Kwkj3f9g+dDb3nvHejeBBn9p7kEC69oeOpBJE9qi5zZotWYtlm1OL+41Kz2fbTkIBeptRUo/jHWSELHTm/4Y5xPBWwiTg3ZfDXo0RSZtMSp4FJbwP/UPb/G0zY+gxMNfXfbAlsgUx7SPzeBiK1njvEivk5dbErnbTKUYCdk1RusOdcXSoUc40Wqn+Gr5Bfp5gEZuAJ+aMGcm15ZRkOb2Ve/jN8e/Z+VwjsG0XJhVuy2jV57d8lgvdPG8qu4="
         on:
+          tags: true
           branch: master 
 stages:
   - test
