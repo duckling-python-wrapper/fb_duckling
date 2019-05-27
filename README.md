@@ -5,3 +5,5 @@
 # fb_duckling
 
 A python wrapper for facebook's duckling.
+
+Set the environment properly to reach your duckling server.
