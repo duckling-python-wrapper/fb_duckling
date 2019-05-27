@@ -33,7 +33,6 @@ matrix:
         password:
           secure: "Irrqqdv5jMbPZs9Ypxc2FM9hXw8FnVRCBJ3NFqIOt4OVwViCLySfK7sKmy+enlOl4BIMypyBgcEWIbkcN/uCwUFYdnBw7DyVrdfyvk5BuHLXS086sCmSS8/7wcADoxEirZc8dAzTFiG7R6deBVL1TANt4ArVMtQRDZUJP+5TZQ4VvYpW/IQZaoNdvfFtiBHm7GkP0cs3oNsV6br0/u/6yIrdsYMVrdfB9/T/aKHSCYKsnuoWaHO7dAbJB9shrPboYLFrhFldz4H27ieArMfVAiBbP3g4BDLGL/oRSACtm4rlJBLAMikOag1L8roRWHIhkRYYmFqmP3ybkWnux1V3tpDq0/lR+vgp2WW4EIQI8BweQjpyCh0mq7LG0rgWtGhnCC9FYj8OIshsgY8GFK6tj750noNLhZbZpSmoQv++BngtFrz2Kwkj3f9g+dDb3nvHejeBBn9p7kEC69oeOpBJE9qi5zZotWYtlm1OL+41Kz2fbTkIBeptRUo/jHWSELHTm/4Y5xPBWwiTg3ZfDXo0RSZtMSp4FJbwP/UPb/G0zY+gxMNfXfbAlsgUx7SPzeBiK1njvEivk5dbErnbTKUYCdk1RusOdcXSoUc40Wqn+Gr5Bfp5gEZuAJ+aMGcm15ZRkOb2Ve/jN8e/Z+VwjsG0XJhVuy2jV57d8lgvdPG8qu4="
         on:
-          tags: true
           branch: master 
 stages:
   - test
