@@ -20,7 +20,7 @@ class Anonymizer(BaseClass):
     def __call__(self, text, ignore_exp=None, fixed_len=True, locale=None):
         result = self._duckling_request(text, locale)
         anonymized_text = self._anonymize(
-            result, text, ignore_exp=None, fixed_len=True, locale=None)
+            result, text, ignore_exp=None, fixed_len=True)
         return anonymized_text
 
     def _anonymize(self, result, text, ignore_exp=[], fixed_len=True, special_char="/"):
