@@ -46,5 +46,8 @@ class TestDuckling(object):
 
     def test_contains_dim(self, duckling):
         raw_text = "hello jack@gmail.com"
-        assert np.array_equal(duckling.contains_dim(raw_text).todense(), [
-            [0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])
+
+        assert np.array_equal(
+            duckling.contains_dim(raw_text).toarray(),
+            np.array([[0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])
+        )

@@ -9,6 +9,6 @@ class BaseClass(object):
 
     def __init__(self, locale=default_locale, url=default_url, port=default_port):
 
-        self.locale = locale
-        self.url = url
-        self.port = port
+        self.locale = locale or "en_US"
+        self.url = url or "http://0.0.0.0"
+        self.port = port or 8000

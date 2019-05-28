@@ -12,4 +12,3 @@ from .utils import get_default_locale, get_default_url, get_default_port
 from .base_class import BaseClass
 from .duckling import Duckling
 from .anonymizer import Anonymizer
-

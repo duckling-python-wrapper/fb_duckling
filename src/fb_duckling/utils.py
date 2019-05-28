@@ -17,12 +17,26 @@ else:
 
 
 def get_default_port():
-    return int(getenv("DEFAULT_PORT"))
+    port = getenv("DEFAULT_PORT")
+    if isinstance(port, str):
+        return int(port)
+    elif isinstance(port, int):
+        return port
+    else:
+        return None
 
 
 def get_default_url():
-    return str(getenv("DEFAULT_URL"))
+    url = getenv("DEFAULT_URL")
+    if isinstance(url, str):
+        return str(getenv("DEFAULT_URL"))
+    else:
+        return None
 
 
 def get_default_locale():
-    return str(getenv("DEFAULT_LOCALE"))
+    locale = getenv("DEFAULT_LOCALE")
+    if isinstance(locale, str):
+        return locale
+    else:
+        return None

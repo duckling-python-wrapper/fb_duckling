@@ -36,6 +36,7 @@ class TestAnonymizer(object):
             'latent': False
         }]
         assert anonymizer._anonymize(result, raw_text) == anonymized_text
+        assert anonymizer(raw_text) == anonymized_text
 
     def test_anonymize_ignore(self, anonymizer):
         raw_text = "All work and no play makes jack@gmail.com a dull boy 0102030405"
@@ -80,7 +81,9 @@ class TestAnonymizer(object):
         }]
         assert anonymizer._anonymize(
             result, raw_text, fixed_len=False) == anonymized_text
+        assert anonymizer(raw_text, fixed_len=False) == anonymized_text
 
     def test_request(self, anonymizer):
         raw_text = "All work and no play makes jack@gmail.com a dull boy 0102030405"
         assert anonymizer._duckling_request(raw_text) is not None
+
