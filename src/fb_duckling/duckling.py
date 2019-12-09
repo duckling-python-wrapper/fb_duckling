@@ -32,10 +32,11 @@ class Duckling(BaseClass):
     def __call__(self, text, locale=None):
         return self.request(text, locale)
         
-    def create_payload(self, text, locale):
+    def create_payload(self, text, locale, tz):
         return {
             "text": text,
-            "locale": locale
+            "locale": locale,
+            "tz": tz 
         }
 
     def request(self, text, locale=None):
@@ -44,7 +45,7 @@ class Duckling(BaseClass):
                                    "charset=UTF-8"}
 
         # Payload
-        payload = self.create_payload(text=text, locale=locale or self.locale)
+        payload = self.create_payload(text=text, locale=locale or self.locale, tz=tz or self.tz)
 
         # Perform Request
         response = requests.post(
