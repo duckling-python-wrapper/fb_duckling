@@ -21,10 +21,12 @@ class TestDuckling(object):
     def test_create_payload(self, duckling):
         locale = "fr_FR"
         raw_text = "All work and no play makes jack@gmail.com a dull boy 0102030405"
+        tz = "Europe/Paris"
 
-        assert duckling.create_payload(raw_text, locale) == {
+        assert duckling.create_payload(raw_text, locale, tz) == {
             "text": raw_text,
-            "locale": locale
+            "locale": locale,
+            "tz": tz
         }
 
     def test_request(self, duckling):
