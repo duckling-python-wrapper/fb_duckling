@@ -13,4 +13,4 @@ class BaseClass(object):
         self.locale = locale or "en_US"
         self.url = url or "http://0.0.0.0"
         self.port = port or 8000
-        self.timezone = timezone
+        self.timezone = timezone or "America/Los_Angeles"
