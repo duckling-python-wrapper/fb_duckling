@@ -39,13 +39,13 @@ class Duckling(BaseClass):
             "tz": tz 
         }
 
-    def request(self, text, locale=None):
+    def request(self, text, locale=None, tz=None):
 
         headers = {"Content-Type": "application/x-www-form-urlencoded; "
                                    "charset=UTF-8"}
 
         # Payload
-        payload = self.create_payload(text=text, locale=locale or self.locale, tz=tz or self.tz)
+        payload = self.create_payload(text=text, locale=locale or self.locale, tz=tz or self.timezone)
 
         # Perform Request
         response = requests.post(
@@ -70,12 +70,12 @@ class Duckling(BaseClass):
                          "https://github.com/facebook/duckling\n"
                          "Error: {0}".format(e))
 
-    def extract_dims(self, text, locale=None):
+    def extract_dims(self, text, locale=None, tz=None):
         return {
-            x["dim"] for x in self.request(text=text, locale=locale or self.locale)
+            x["dim"] for x in self.request(text=text, locale=locale or self.locale, tz=tz or self.timezone)
         }
 
-    def contains_dim(self, text, locale=None):
+    def contains_dim(self, text, locale=None, tz=None):
         return self.dim_onh.transform(
-            [list(self.extract_dims(text=text, locale=locale or self.locale))]
+            [list(self.extract_dims(text=text, locale=locale or self.locale, tz=tz or self.timezone))]
         )

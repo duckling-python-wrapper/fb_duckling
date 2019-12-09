@@ -17,8 +17,8 @@ class Anonymizer(BaseClass):
         self.duckling = Duckling(*args, **kwargs)
         self.anonymization_dict = anonymization_dict
 
-    def __call__(self, text, ignore_exp=[], fixed_len=True, locale=None, special_char="/"):
-        result = self._duckling_request(text, locale or self.locale)
+    def __call__(self, text, ignore_exp=[], fixed_len=True, locale=None, tz=None, special_char="/"):
+        result = self._duckling_request(text, locale or self.locale, tz or self.timezone)
         anonymized_text = self._anonymize(
             result, text, ignore_exp=ignore_exp, fixed_len=fixed_len, special_char=special_char)
         return anonymized_text
@@ -54,8 +54,8 @@ class Anonymizer(BaseClass):
 
         return anonymized_text
 
-    def _duckling_request(self, text, locale=None):
-        result = self.duckling.request(text, locale=locale or self.locale)
+    def _duckling_request(self, text, locale=None, tz=None):
+        result = self.duckling.request(text, locale=locale or self.locale, tz=tz or self.timezone)
         return result
 
     def _add_padding(self, key, length, special_char):
