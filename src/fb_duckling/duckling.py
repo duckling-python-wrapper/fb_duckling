@@ -29,6 +29,9 @@ class Duckling(BaseClass):
         self.dim_onh = OneHotEncoder()
         self.dim_onh.fit(np.array(self.dim_list).reshape(-1, 1))
 
+    def __call__(self, text, locale=None):
+        return self.request(text, locale)
+        
     def create_payload(self, text, locale):
         return {
             "text": text,
