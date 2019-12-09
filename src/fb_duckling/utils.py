@@ -37,3 +37,11 @@ def get_default_locale():
         return locale
     else:
         return None
+
+    
+def get_default_timezone():
+    timezone = getenv("DEFAULT_TIMEZONE")
+    if isinstance(timezone, str):
+        return timezone
+    else:
+        return None
