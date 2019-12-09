@@ -1,4 +1,4 @@
-from .utils import get_default_locale, get_default_url, get_default_port
+from .utils import get_default_locale, get_default_url, get_default_port, get_default_timezone
 
 
 class BaseClass(object):
