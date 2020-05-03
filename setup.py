@@ -19,6 +19,9 @@ entry_points = """
 # fibonacci = fb_duckling.skeleton:run
 """
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 
 def setup_package():
 
@@ -27,7 +30,8 @@ def setup_package():
     setup(setup_requires=['pyscaffold>=2.5,<3.1a0'] + sphinx,
           entry_points=entry_points,
           use_pyscaffold=True,
-          dependency_links=["https://github.com/facebook/duckling"])
+          dependency_links=["https://github.com/facebook/duckling"],
+          install_requires=requirements)
 
 
 if __name__ == "__main__":
