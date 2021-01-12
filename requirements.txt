@@ -3,7 +3,6 @@ attrs==19.1.0
 backcall==0.1.0
 certifi==2019.3.9
 chardet==3.0.4
-python-coveralls==2.9.1
 decorator==4.4.0
 gitdb2==2.0.5
 GitPython==2.1.11
@@ -21,7 +20,6 @@ Pygments==2.3.1
 pytest==4.4.1
 pytest-cov==2.6.1
 pytest-cover==3.0.0
-pytest-coverage==0.0
 python-dotenv==0.10.1
 requests==2.21.0
 scikit-learn==0.20.3
