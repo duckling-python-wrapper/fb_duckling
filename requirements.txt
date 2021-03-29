@@ -17,7 +17,7 @@ pluggy==0.9.0
 prompt-toolkit==2.0.9
 ptyprocess==0.6.0
 py==1.8.0
-Pygments==2.3.1
+Pygments==2.7.4
 pytest==4.4.1
 pytest-cov==2.6.1
 pytest-cover==3.0.0
