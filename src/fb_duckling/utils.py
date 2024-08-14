@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from os import path, getenv
+from datetime import datetime
 
 
 env_path = "./.env"
@@ -45,3 +46,7 @@ def get_default_timezone():
         return timezone
     else:
         return None
+
+
+def get_default_reftime():
+    return int(datetime.now().timestamp() * 1000)

@@ -32,20 +32,21 @@ class Duckling(BaseClass):
     def __call__(self, text, locale=None):
         return self.request(text, locale)
         
-    def create_payload(self, text, locale, tz):
+    def create_payload(self, text, locale, tz, reftime):
         return {
             "text": text,
             "locale": locale,
-            "tz": tz 
+            "tz": tz,
+            "reftime": reftime
         }
 
-    def request(self, text, locale=None, tz=None):
+    def request(self, text, locale=None, tz=None, reftime=None):
 
         headers = {"Content-Type": "application/x-www-form-urlencoded; "
                                    "charset=UTF-8"}
 
         # Payload
-        payload = self.create_payload(text=text, locale=locale or self.locale, tz=tz or self.timezone)
+        payload = self.create_payload(text=text, locale=locale or self.locale, tz=tz or self.timezone, reftime=reftime or self.reftime)
 
         # Perform Request
         response = requests.post(
